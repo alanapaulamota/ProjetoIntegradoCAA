@@ -8,6 +8,13 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.Id;
 
+//import lombok.AllArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
+//
+//@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -89,4 +96,14 @@ public class Usuario implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("Usuario{");
+		sb.append("id=").append(id);
+		sb.append(", nome='").append(nome).append('\'');
+		sb.append(", cpf='").append(cpf).append('\'');
+		sb.append(", idade='").append(idade).append('\'');
+		sb.append('}');
+		return sb.toString();
+	}
 }
