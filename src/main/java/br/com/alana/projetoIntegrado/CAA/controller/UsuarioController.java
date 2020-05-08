@@ -15,6 +15,8 @@ public class UsuarioController {
 
 	UsuarioService servico;
 
+//TODO finalizar controller
+
 	@RequestMapping(value = "/usuarios", method = RequestMethod.GET)
 	public ModelAndView getUsuarios() {
 		ModelAndView mv = new ModelAndView("usuarios");
