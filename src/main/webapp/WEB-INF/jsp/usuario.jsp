@@ -52,7 +52,7 @@
 	</div>
 	<div>
 		<h5>Senha</h5>
-		<form:input path="senha" class="form-control" type="text" name="" />
+		<form:input path="senha" class="form-control" type="password" name="" />
 	</div>
 
 
