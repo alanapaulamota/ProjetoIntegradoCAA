@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 //import lombok.AllArgsConstructor;
 //import lombok.Data;
@@ -31,16 +29,20 @@ public class Usuario implements Serializable {
 	private Long id;
 
 	@Column(name = "nome", length = 255, nullable = false)
-	@Size(max = 255)
-	@NotBlank
+//	@Size(max = 255)
+//	@NotBlank
 	private String nome;
 
 	@Column(name = "cpf", length = 255, nullable = false, unique = true)
 	@NotBlank
 	private String cpf;
 
-	@NotNull
+//	@NotNull
 	private Integer idade;
+
+	@NotBlank
+	@Column(length = 60)
+	private String senha;
 
 	public Long getId() {
 		return id;
@@ -74,9 +76,17 @@ public class Usuario implements Serializable {
 		this.idade = idade;
 	}
 
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(cpf, id, idade, nome);
+		return Objects.hash(cpf, id, idade, nome, senha);
 	}
 
 	@Override
@@ -89,7 +99,7 @@ public class Usuario implements Serializable {
 		}
 		Usuario other = (Usuario) obj;
 		return Objects.equals(cpf, other.cpf) && Objects.equals(id, other.id) && Objects.equals(idade, other.idade)
-				&& Objects.equals(nome, other.nome);
+				&& Objects.equals(senha, other.senha) && Objects.equals(nome, other.nome);
 	}
 
 	@Override
@@ -100,10 +110,6 @@ public class Usuario implements Serializable {
 }
 //	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
 //	private LocalDate data;
-
-//	@NotBlank
-//	@Column(length = 60)
-//	private String senha;
 
 //	@Size(min = 5, max = 254)
 //	@Column(length = 254, unique = true, nullable = false)
