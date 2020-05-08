@@ -1,0 +1,125 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 7rem;
+	padding: 0 2rem;
+
+}
+
+.login-container{
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+
+form{
+	width: 1500px;
+}
+
+.avatar{
+	width: 150px;
+}
+
+form h2{
+	font-size: 2.9rem;
+	text-transform: uppercase;
+	margin: 15px 0;
+	color: #333;
+}
+
+.input-div{
+	display: grid;
+	grid-template-columns: 0% 100%;
+	margin: 30px 0;
+	padding: 10px 0
+	border-bottom: 2px solid #d9d9d9;
+}
+
+.input-div div h5{
+	top: -5px;
+	font-size: 15px;
+}
+
+.input-div.one{
+	margin-top: 0;
+}
+
+.input-div.two{
+	margin-top: 0;
+}
+
+.i{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.i i{
+	color: #d9d9d9;
+	transition: .3s;
+}
+
+.input-div > div{
+	position: relative;
+	height: 45px;
+}
+
+.input-div > div h5{
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	display: none;
+	font-size: 18px;
+	transition: .3s;
+}
+
+.input{
+	position: relative;
+	width: 40%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	font-family: 'Poppins', sans-serif;
+	color: #555;
+}
+
+.btn{
+	position: relative;
+	width: 40%;
+	height: 50px;
+	border-radius: 25px;
+	margin: 1rem 0;
+	font-size: 1.2rem;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #16AA22, #31DE40, #16AA22);
+	cursor: pointer;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: 'Poppins', sans-serif;
+	background-size: 200%;
+	transition: .5s;
+}
+
+.btn:hover{
+	background-position: right;
+}
