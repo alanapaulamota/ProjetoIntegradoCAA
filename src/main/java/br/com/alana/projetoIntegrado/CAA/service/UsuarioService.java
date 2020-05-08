@@ -1,10 +1,15 @@
 package br.com.alana.projetoIntegrado.CAA.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-import br.com.alana.projetoIntegrado.CAA.domain.Usuario;
+import br.com.alana.projetoIntegrado.CAA.model.Usuario;
 
-@Service
 public interface UsuarioService {
+
+	List<Usuario> findAll();
+
+	Usuario findById(long id);
+
+	Usuario save(Usuario usuario);
 
 }
