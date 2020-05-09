@@ -11,6 +11,7 @@ import br.com.alana.projetoIntegrado.CAA.model.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
+	// busca por cpf na lista de Usuarios
 	Optional<Usuario> findByCpf(String cpf);
 
 }

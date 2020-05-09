@@ -40,7 +40,7 @@ public class CaaApplication extends SpringBootServletInitializer implements Comm
 		Usuario user1 = new Usuario();
 		user1.setNome("Alana Paula");
 		user1.setIdade(22);
-		user1.setCpf("061913671-81");
+		user1.setCpf("06291367181");
 		user1.setSenha("aaa");
 
 		Usuario user2 = new Usuario();

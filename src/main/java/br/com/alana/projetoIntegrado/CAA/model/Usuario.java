@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 //import lombok.AllArgsConstructor;
 //import lombok.Data;
@@ -18,6 +20,8 @@ import javax.validation.constraints.NotBlank;
 //@Data
 //@NoArgsConstructor
 //@AllArgsConstructor
+
+//Criando classe model com os respectivos atributos(nome,cpf,idade,email)
 @Entity
 @Table(name = "usuario")
 public class Usuario implements Serializable {
@@ -29,20 +33,24 @@ public class Usuario implements Serializable {
 	private Long id;
 
 	@Column(name = "nome", length = 255, nullable = false)
-//	@Size(max = 255)
-//	@NotBlank
+	@Size(max = 255)
+	@NotBlank
 	private String nome;
 
-	@Column(name = "cpf", length = 255, nullable = false, unique = true)
+	@Column(name = "cpf", length = 13, nullable = false, unique = true)
 	@NotBlank
 	private String cpf;
 
-//	@NotNull
+	@NotNull
 	private Integer idade;
 
 	@NotBlank
 	@Column(length = 60)
 	private String senha;
+
+//	@Size(min = 5, max = 254)
+//	@Column(length = 254, unique = true, nullable = false)
+//	private String email;
 
 	public Long getId() {
 		return id;
@@ -84,6 +92,14 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
+//	public String getEmail() {
+//		return email;
+//	}
+//
+//	public void setEmail(String email) {
+//		this.email = email;
+//	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(cpf, id, idade, nome, senha);
@@ -110,7 +126,3 @@ public class Usuario implements Serializable {
 }
 //	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
 //	private LocalDate data;
-
-//	@Size(min = 5, max = 254)
-//	@Column(length = 254, unique = true, nullable = false)
-//	private String email;
