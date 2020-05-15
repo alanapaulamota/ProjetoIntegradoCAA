@@ -6,12 +6,18 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import br.com.alana.projetoIntegrado.CAA.model.Usuario;
-//transacoes com BD -> METODOS CRUDS PRONTOS
+
+
+/* Classe Repositorio
+*
+*  
+*
+*Por extender a classe JpaRepository tem acesso a metodos do Spring Data ja prontos, por exemplo: CRUD, find all...
+*/
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	// busca por cpf na lista de Usuarios
-	Optional<Usuario> findByCpf(String cpf);
+	Optional<Usuario> findByCpf(String cpf); // busca por cpf na lista de Usuarios
 
 }

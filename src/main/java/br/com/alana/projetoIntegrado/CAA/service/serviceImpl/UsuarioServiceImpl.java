@@ -12,21 +12,26 @@ import br.com.alana.projetoIntegrado.CAA.service.UsuarioService;
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 
+	// Ponto de injeção para conseguir usar as instãncias do repositório
+	// UsuarioRepository
 	@Autowired
 	UsuarioRepository repositorio;
 
+	// Metodos implementados da interface UsuarioService
 	@Override
 	public List<Usuario> findAll() {
-		return repositorio.findAll();
+		return repositorio.findAll(); // busca todos Usuarios cadastrados
 	}
 
 	@Override
 	public Usuario findById(long id) {
-		return repositorio.findById(id).get();
+		return repositorio.findById(id).get(); // .get() serve para o obter o Usuario, e não um Optional (repositorio)
+												// de Usuario
 	}
 
 	@Override
-	public Usuario save(Usuario usuario) {
+	public Usuario save(Usuario usuario) { // metodo save ultilizando metodo save do jpa Repository e passar o usuario
+											// que ta recebendo como parametro
 		return repositorio.save(usuario);
 	}
 

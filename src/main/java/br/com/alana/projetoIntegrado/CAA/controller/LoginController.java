@@ -9,16 +9,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import br.com.alana.projetoIntegrado.CAA.model.Login;
 import br.com.alana.projetoIntegrado.CAA.service.LoginService;
 
-@Controller
+@Controller // Define que minha classe será um controller
 public class LoginController {
 
+	// Ponto de injeção para conseguir usar os metodos implementados no LoginService
 	@Autowired
 	LoginService servico;
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String showWelcomePage(ModelMap model) {
-		model.addAttribute("login", new Login());
-		return "login";
+	@RequestMapping(value = "/login", method = RequestMethod.GET) // anotação responsável pelo processamento da URL
+																	// mapeada -> transforma em action
+
+	public String showLoginPage(ModelMap model) { // Model é um auxiliar que ajuda a adicionar atributos a nossa view,
+		// o ModelMap é uma extensao do Model com capacidade de armazenar
+		// atributos em um mapa e em chamadas de método em cadeia.
+
+		model.addAttribute("login", new Login()); // adicionando atributos a view
+		return "login"; // Retorna a view (login.jsp) que deve ser chamada (.jsp é omitido)
 	}
 
 }

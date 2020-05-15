@@ -13,44 +13,51 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-//import lombok.AllArgsConstructor;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
-//
-//@Data
-//@NoArgsConstructor
-//@AllArgsConstructor
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 //Criando classe model com os respectivos atributos(nome,cpf,idade,email)
-@Entity
-@Table(name = "usuario")
+@Entity // Anotação que indica que a classe é uma entidade do banco de dados
+@Table(name = "usuario") // Anotação indica nome da tabela a ser criada no banco de dados
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
+	@Id // Anotação para indicar que o campo id é identificados da entidade
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Anotação indica que o valor do id será gerado pelo banco de
+														// dados
+	@Column // Anotação que define uma coluna no banco de dados
 	private Long id;
 
-	@Column(name = "nome", length = 255, nullable = false)
+	@Column(name = "nome", length = 255, nullable = false) // Anotação que define uma coluna no banco de dados cujo o
+															// valor do atributo pode ter no maximo 255 caracteres, e
+															// não
+															// pode ser nulo
 	@Size(max = 255)
-	@NotBlank
+	@NotBlank // Não pode ser nulo, inexistente ou branco
 	private String nome;
 
-	@Column(name = "cpf", length = 13, nullable = false, unique = true)
-	@NotBlank
+	@Column(name = "cpf", length = 11, nullable = false, unique = true) // Anotação que define uma coluna no banco de
+																		// dados cujo o valor do atributo pode ter no
+																		// maximo 11 caracteres, não pode ser nulo e é
+																		// unico
+
+	@NotBlank // Não pode ser nulo, inexistente ou branco
 	private String cpf;
 
-	@NotNull
+	@NotNull // Não pode ser nulo
 	private Integer idade;
 
-	@NotBlank
-	@Column(length = 60)
+	@NotBlank // Não pode ser nulo, inexistente ou branco
+	@Column(length = 60, nullable = false) // Anotação que define uma coluna no banco de dados cujo o valor do atributo
+	// pode ter no maximo 60 caracteres
 	private String senha;
 
-//	@Size(min = 5, max = 254)
-//	@Column(length = 254, unique = true, nullable = false)
-//	private String email;
+//Gerando getters and setters 
 
 	public Long getId() {
 		return id;
@@ -92,14 +99,7 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-
+	// Gerando HashCode and equals
 	@Override
 	public int hashCode() {
 		return Objects.hash(cpf, id, idade, nome, senha);
@@ -118,11 +118,10 @@ public class Usuario implements Serializable {
 				&& Objects.equals(senha, other.senha) && Objects.equals(nome, other.nome);
 	}
 
+	// Gerando toString
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + "]";
 	}
 
 }
-//	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-//	private LocalDate data;
