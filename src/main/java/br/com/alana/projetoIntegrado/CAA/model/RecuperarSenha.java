@@ -70,5 +70,5 @@
 //	public String toString() {
 //		return String.format("RecuperarSenha [cpf=%s, senha=%s]", cpf, senha);
 //	}
-//
+// GERANDO GETTERS E SETTER COM LOMBOK
 //}

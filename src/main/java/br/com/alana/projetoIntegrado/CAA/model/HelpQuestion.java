@@ -43,34 +43,14 @@ public class HelpQuestion implements Serializable {
 		this.resposta = resposta;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getPergunta() {
-		return pergunta;
-	}
-
-	public void setPergunta(String pergunta) {
-		this.pergunta = pergunta;
-	}
-
-	public String getResposta() {
-		return resposta;
-	}
-
-	public void setResposta(String resposta) {
-		this.resposta = resposta;
-	}
-
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, pergunta, resposta);
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -90,4 +70,5 @@ public class HelpQuestion implements Serializable {
 		return String.format("HelpQuestion [id=%s, pergunta=%s, resposta=%s]", id, pergunta, resposta);
 	}
 
+	// GERANDO GETTERS E SETTER COM LOMBOK
 }

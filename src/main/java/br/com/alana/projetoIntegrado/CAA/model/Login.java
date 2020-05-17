@@ -45,32 +45,7 @@ public class Login implements Serializable {
 	@NotBlank // Não pode ser nulo, inexistente ou branco
 	private String senha;
 
-	// Gerando getters and setters
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	// Gerando HashCode and equals
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(cpf, id, senha);
@@ -94,4 +69,5 @@ public class Login implements Serializable {
 		return "Login [id=" + id + ", cpf=" + cpf + "]";
 	}
 
+	// GERANDO GETTERS E SETTER COM LOMBOK
 }
