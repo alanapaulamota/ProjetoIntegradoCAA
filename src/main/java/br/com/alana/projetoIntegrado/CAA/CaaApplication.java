@@ -10,10 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+import br.com.alana.projetoIntegrado.CAA.model.CadastroUser;
 import br.com.alana.projetoIntegrado.CAA.model.HelpQuestion;
-import br.com.alana.projetoIntegrado.CAA.model.Usuario;
+import br.com.alana.projetoIntegrado.CAA.repository.CadastroRepository;
 import br.com.alana.projetoIntegrado.CAA.repository.HelpQuestionsRepository;
-import br.com.alana.projetoIntegrado.CAA.repository.UsuarioRepository;
 
 /* Classe principal, serve pra subir a aplicação... 
 *  
@@ -26,7 +26,7 @@ public class CaaApplication extends SpringBootServletInitializer implements Comm
 //	private HelpQuestionsRepository repository;
 
 	@Autowired
-	UsuarioRepository repositorio;
+	CadastroRepository repositorio;
 
 	@Autowired
 	HelpQuestionsRepository helpRepository;
@@ -52,36 +52,39 @@ public class CaaApplication extends SpringBootServletInitializer implements Comm
 		helpRepository.deleteAll();
 
 		// Fazendo testes de que ta salvando realmente no banco de dados
-		List<Usuario> usuarioList = new ArrayList<>();
-		Usuario user1 = new Usuario();
+		List<CadastroUser> usuarioList = new ArrayList<>();
+		CadastroUser user1 = new CadastroUser();
 		user1.setNome("Alana Paula");
 		user1.setIdade(22);
-		user1.setCpf("06291367181");
-		user1.setSenha("aaa");
+		user1.setCpf("062.913.671-81");
+		user1.setSenha("030626Df");
+		user1.setEmail("alana@upis.com");
 
-		Usuario user2 = new Usuario();
+		CadastroUser user2 = new CadastroUser();
 		user2.setNome("Debora Isabel");
 		user2.setIdade(25);
-		user2.setCpf("055915641-54");
-		user2.setSenha("bbb");
+		user2.setCpf("055.915.641-54");
+		user2.setSenha("1234567Df");
+		user2.setEmail("debora@upis.com");
 
-		Usuario user3 = new Usuario();
+		CadastroUser user3 = new CadastroUser();
 		user3.setNome("Ana Rute");
 		user3.setIdade(23);
-		user3.setCpf("049953479-87");
-		user3.setSenha("ccc");
+		user3.setCpf("049.953.479-87");
+		user3.setSenha("78945678Df");
+		user3.setEmail("ana@upis.com");
 
 		usuarioList.add(user1);
 		usuarioList.add(user2);
 		usuarioList.add(user3);
 
-		for (Usuario usuario : usuarioList) {
-			Usuario usuarioSaved = repositorio.save(usuario);
+		for (CadastroUser cadastroUser : usuarioList) {
+			CadastroUser usuarioSaved = repositorio.save(cadastroUser);
 			System.out.println(usuarioSaved);
 		}
 
 		// teste:busca por CPF
-		System.out.println(">>> " + repositorio.findByCpf("061913671-81"));
+		System.out.println(">>> " + repositorio.findByCpf("062.913.671-81"));
 
 // TELA HELP
 
@@ -91,8 +94,7 @@ public class CaaApplication extends SpringBootServletInitializer implements Comm
 
 		System.out.println("\n\n\nProcurando perguntas sobre tela...");
 		String query = "voltar";
-		List<HelpQuestion> list = helpRepository
-				.findByPerguntaContainingOrRespostaContaining(query, query);
+		List<HelpQuestion> list = helpRepository.findByPerguntaContainingOrRespostaContaining(query, query);
 		list.forEach(System.out::println);
 
 	}

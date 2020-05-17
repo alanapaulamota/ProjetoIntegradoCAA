@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.alana.projetoIntegrado.CAA.model.Usuario;
+import br.com.alana.projetoIntegrado.CAA.model.CadastroUser;
 
 
 /* Classe Repositorio
@@ -16,8 +16,8 @@ import br.com.alana.projetoIntegrado.CAA.model.Usuario;
 */
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+public interface CadastroRepository extends JpaRepository<CadastroUser, Long> {
 
-	Optional<Usuario> findByCpf(String cpf); // busca por cpf na lista de Usuarios
+	Optional<CadastroUser> findByCpf(String cpf); // busca por cpf na lista de Usuarios
 
 }

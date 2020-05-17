@@ -14,7 +14,7 @@ public interface LoginService {
 	// metodo que retona uma lista de Usuarios Logados
 	List<Login> findAll();
 
-	// metodo que retorna um unico Usuario Logado, buscando pelo parametro id do
+	// metodo que retorna um unico CadastroUser Logado, buscando pelo parametro id do
 	// tipo de dado long
 	Login findById(long id);
 

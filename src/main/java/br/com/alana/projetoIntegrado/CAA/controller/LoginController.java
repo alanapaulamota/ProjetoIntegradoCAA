@@ -16,15 +16,15 @@ public class LoginController {
 	@Autowired
 	LoginService servico;
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET) // anotação responsável pelo processamento da URL
-																	// mapeada -> transforma em action
+	@RequestMapping(value = "/indexLogin", method = RequestMethod.GET) // anotação responsável pelo processamento da URL
+																		// mapeada -> transforma em action
 
 	public String showLoginPage(ModelMap model) { // Model é um auxiliar que ajuda a adicionar atributos a nossa view,
 		// o ModelMap é uma extensao do Model com capacidade de armazenar
 		// atributos em um mapa e em chamadas de método em cadeia.
 
-		model.addAttribute("login", new Login()); // adicionando atributos a view
-		return "login"; // Retorna a view (login.jsp) que deve ser chamada (.jsp é omitido)
+		model.addAttribute("indexLogin", new Login()); // adicionando atributos a view
+		return "indexLogin"; // Retorna a view (login.jsp) que deve ser chamada (.jsp é omitido)
 	}
 
 }

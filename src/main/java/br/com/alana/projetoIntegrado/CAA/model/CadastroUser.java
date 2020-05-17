@@ -23,8 +23,8 @@ import lombok.NoArgsConstructor;
 
 //Criando classe model com os respectivos atributos(nome,cpf,idade,email)
 @Entity // Anotação que indica que a classe é uma entidade do banco de dados
-@Table(name = "usuario") // Anotação indica nome da tabela a ser criada no banco de dados
-public class Usuario implements Serializable {
+@Table(name = "cadastroUser") // Anotação indica nome da tabela a ser criada no banco de dados
+public class CadastroUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id // Anotação para indicar que o campo id é identificados da entidade
@@ -35,93 +35,55 @@ public class Usuario implements Serializable {
 
 	@Column(name = "nome", length = 255, nullable = false) // Anotação que define uma coluna no banco de dados cujo o
 															// valor do atributo pode ter no maximo 255 caracteres, e
-															// não
-															// pode ser nulo
+															// não pode ser nulo
 	@Size(max = 255)
-	@NotBlank // Não pode ser nulo, inexistente ou branco
+	@NotBlank(message = " não pode estar em branco") // Não pode ser nulo, inexistente ou branco
 	private String nome;
 
-	@Column(name = "cpf", length = 11, nullable = false, unique = true) // Anotação que define uma coluna no banco de
+	@Column(name = "cpf", length = 20, nullable = false, unique = true) // Anotação que define uma coluna no banco de
 																		// dados cujo o valor do atributo pode ter no
-																		// maximo 11 caracteres, não pode ser nulo e é
+																		// maximo 20 caracteres, não pode ser nulo e é
 																		// unico
-
-	@NotBlank // Não pode ser nulo, inexistente ou branco
+	@NotBlank(message = " não pode estar em branco") // Não pode ser nulo, inexistente ou branco
 	private String cpf;
 
 	@NotNull // Não pode ser nulo
 	private Integer idade;
 
-	@NotBlank // Não pode ser nulo, inexistente ou branco
+	@NotBlank(message = " não pode estar em branco") // Não pode ser nulo, inexistente ou branco
 	@Column(length = 60, nullable = false) // Anotação que define uma coluna no banco de dados cujo o valor do atributo
 	// pode ter no maximo 60 caracteres
 	private String senha;
 
-//Gerando getters and setters 
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public Integer getIdade() {
-		return idade;
-	}
-
-	public void setIdade(Integer idade) {
-		this.idade = idade;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+	@Size(min = 5, max = 254)
+	@Column(length = 254, unique = true, nullable = false)
+	private String email;
 
 	// Gerando HashCode and equals
-	@Override
-	public int hashCode() {
-		return Objects.hash(cpf, id, idade, nome, senha);
-	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof Usuario)) {
+		if (!(obj instanceof CadastroUser)) {
 			return false;
 		}
-		Usuario other = (Usuario) obj;
-		return Objects.equals(cpf, other.cpf) && Objects.equals(id, other.id) && Objects.equals(idade, other.idade)
-				&& Objects.equals(senha, other.senha) && Objects.equals(nome, other.nome);
+		CadastroUser other = (CadastroUser) obj;
+		return Objects.equals(cpf, other.cpf) && Objects.equals(email, other.email) && Objects.equals(id, other.id)
+				&& Objects.equals(idade, other.idade) && Objects.equals(nome, other.nome)
+				&& Objects.equals(senha, other.senha);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cpf, email, id, idade, nome, senha);
 	}
 
 	// Gerando toString
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + "]";
+		return "CadastroUsuario [id=" + id + ", nome=" + nome + "]";
 	}
 
+	// CRIANDO GETTERS E SETTER COM LOMBOK
 }

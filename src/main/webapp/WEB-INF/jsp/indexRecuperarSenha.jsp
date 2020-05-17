@@ -25,7 +25,7 @@
 			<img src="undraw_mobile_devices_k1ok.svg">-->
 		</div>
 		<div class="login-container">
-			<form action="indexRecuperarSenha.html">
+			<form action="/indexRecuperarSenha">
 				<!--<img class="avatar" src="img/avatar.svg">-->
 				<img class="sedf" src="img/sedef.jpg">
 				<h3>Secretária da Educação</h3>

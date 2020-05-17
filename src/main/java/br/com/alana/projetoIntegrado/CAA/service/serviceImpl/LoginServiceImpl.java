@@ -17,7 +17,7 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	LoginRepository repositorio;
 
-	// Metodos implementados da interface UsuarioService
+	// Metodos implementados da interface CadastroService
 	@Override
 	public List<Login> findAll() {
 		return repositorio.findAll(); //busca todos Usuarios logados
@@ -25,8 +25,8 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public Login findById(long id) {
-		return repositorio.findById(id).get(); // .get() serve para o obter o Usuario Logado, e não um Optional
-												// (repositorio) de Usuario Logado
+		return repositorio.findById(id).get(); // .get() serve para o obter o CadastroUser Logado, e não um Optional
+												// (repositorio) de CadastroUser Logado
 	}
 
 	@Override

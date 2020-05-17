@@ -34,8 +34,8 @@ public class HelpQuestion implements Serializable {
 	@Column
 	private String resposta;
 
-	public HelpQuestion() {
-	}
+//	public HelpQuestion() {
+//	}
 
 	public HelpQuestion(String pergunta, String resposta) {
 		super();
