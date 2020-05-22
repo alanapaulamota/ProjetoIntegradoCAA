@@ -1,6 +1,7 @@
 package br.com.alana.projetoIntegrado.CAA.model;
 
-import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,10 +9,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +31,7 @@ import lombok.NoArgsConstructor;
 //Criando classe model com os respectivos atributos(nome,cpf,idade,email)
 @Entity // Anotação que indica que a classe é uma entidade do banco de dados
 @Table(name = "cadastroUser") // Anotação indica nome da tabela a ser criada no banco de dados
-public class CadastroUser implements Serializable {
+public class CadastroUser implements UserDetails {
 	private static final long serialVersionUID = 1L;
 
 	@Id // Anotação para indicar que o campo id é identificados da entidade
@@ -59,6 +66,11 @@ public class CadastroUser implements Serializable {
 	@Column(length = 254, unique = true, nullable = false)
 	private String email;
 
+	@ManyToMany
+	private List<Role>roles;
+//	@JoinTable(name="usuariosRoles", joinColumns = @JoinColumn (name="usuarioRoleId", referencedColumnName = "cpf"), inverseJoinColumns = @JoinColumn(name ="")  )
+	
+	
 	// Gerando HashCode and equals
 	@Override
 	public boolean equals(Object obj) {
@@ -85,5 +97,41 @@ public class CadastroUser implements Serializable {
 		return "CadastroUsuario [id=" + id + ", nome=" + nome + "]";
 	}
 
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return null;
+	}
+
+	@Override
+	public String getPassword() {
+		return this.senha;
+	}
+
+	@Override
+	public String getUsername() {
+		return this.cpf;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+
 	// CRIANDO GETTERS E SETTER COM LOMBOK
+	
 }
