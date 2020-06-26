@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +21,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "dicionario")
-public class DicionarioHelp implements Serializable {
+public class HelpDicionario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -30,16 +31,18 @@ public class DicionarioHelp implements Serializable {
 	private Long id;
 
 	@Column
+	@NotBlank
 	private String palavra;
 
 	@Column
+	@NotBlank
 	private String significado;
 
 //	public DicionarioHelp() {
 //
 //	}
 
-	public DicionarioHelp(String palavra, String significado) {
+	public HelpDicionario(String palavra, String significado) {
 		super();
 		this.palavra = palavra;
 		this.significado = significado;
@@ -55,10 +58,10 @@ public class DicionarioHelp implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof DicionarioHelp)) {
+		if (!(obj instanceof HelpDicionario)) {
 			return false;
 		}
-		DicionarioHelp other = (DicionarioHelp) obj;
+		HelpDicionario other = (HelpDicionario) obj;
 		return Objects.equals(id, other.id) && Objects.equals(palavra, other.palavra)
 				&& Objects.equals(significado, other.significado);
 	}

@@ -24,7 +24,7 @@ public class LoginController {
 		// atributos em um mapa e em chamadas de método em cadeia.
 
 		model.addAttribute("indexLogin", new Login()); // adicionando atributos a view
-		return "indexLogin"; // Retorna a view (login.jsp) que deve ser chamada (.jsp é omitido)
+		return "indexLogin"; // Retorna a view (indexLogin.jsp) que deve ser chamada (.jsp é omitido)
 	}
 
 }

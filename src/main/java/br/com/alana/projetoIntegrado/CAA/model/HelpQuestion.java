@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,9 +30,11 @@ public class HelpQuestion implements Serializable {
 	private Long id;
 
 	@Column
+	@NotBlank
 	private String pergunta;
 
 	@Column
+	@NotBlank
 	private String resposta;
 
 //	public HelpQuestion() {
@@ -43,14 +46,10 @@ public class HelpQuestion implements Serializable {
 		this.resposta = resposta;
 	}
 
-	
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, pergunta, resposta);
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {

@@ -15,11 +15,11 @@ import br.com.alana.projetoIntegrado.CAA.repository.CadastroRepository;
 public class ImplementsUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private CadastroRepository CadRep;
+	private CadastroRepository cadRep;
 
 	@Override
 	public UserDetails loadUserByUsername(String cpf) throws UsernameNotFoundException {
-		Optional<CadastroUser> user = CadRep.findByCpf(cpf);
+		Optional<CadastroUser> user = cadRep.findByCpf(cpf);
 
 		if (user == null) {
 			throw new UsernameNotFoundException("CPF nao encontrado!");

@@ -12,9 +12,9 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import br.com.alana.projetoIntegrado.CAA.model.CadastroUser;
-import br.com.alana.projetoIntegrado.CAA.model.DicionarioHelp;
+import br.com.alana.projetoIntegrado.CAA.model.HelpDicionario;
 import br.com.alana.projetoIntegrado.CAA.repository.CadastroRepository;
-import br.com.alana.projetoIntegrado.CAA.repository.DicionarioHelpRepository;
+import br.com.alana.projetoIntegrado.CAA.repository.HelpDicionarioRepository;
 import br.com.alana.projetoIntegrado.CAA.repository.HelpQuestionsRepository;
 
 /* Classe principal, serve pra subir a aplicação... 
@@ -25,7 +25,7 @@ import br.com.alana.projetoIntegrado.CAA.repository.HelpQuestionsRepository;
 public class CaaApplication extends SpringBootServletInitializer implements CommandLineRunner {
 
 	@Autowired
-	DicionarioHelpRepository dicRepo;
+	HelpDicionarioRepository dicRepo;
 
 	@Autowired
 	CadastroRepository repositorio;
@@ -100,8 +100,8 @@ public class CaaApplication extends SpringBootServletInitializer implements Comm
 //
 //		helpRepository.saveAll(perguntasAndRespostas);
 //
-//		System.out.println("\n\n\nProcurando perguntas sobre tela...");
-//		String query = "voltar";
+//		System.out.println("\n\n\nProcurando perguntas...");
+//		String query = "login";
 //		List<HelpQuestion> list = helpRepository.findByPerguntaContainingOrRespostaContaining(query, query);
 //		list.forEach(System.out::println);
 //
@@ -115,24 +115,24 @@ public class CaaApplication extends SpringBootServletInitializer implements Comm
 
 // TELA HELP -> dicionario
 
-//		List<DicionarioHelp> palavrasAndSignificados = createWordsAndMeanings();
+//		List<HelpDicionario> palavrasAndSignificados = createWordsAndMeanings();
 //
 //		dicRepo.saveAll(palavrasAndSignificados);
 //
 //		System.out.println("\n\n\nProcurando significado para palavra...");
-//		String query = "logout";
-//		List<DicionarioHelp> list = dicRepo.findByPalavraContainingOrSignificadoContaining(query, query);
+//		String query = "maximizar";
+//		List<HelpDicionario> list = dicRepo.findByPalavraContainingOrSignificadoContaining(query, query);
 //		list.forEach(System.out::println);
 //
 //	}
 //
-//	private List<DicionarioHelp> createWordsAndMeanings() {
+//	private List<HelpDicionario> createWordsAndMeanings() {
 //		return List.of(
-//				new DicionarioHelp("maximizar:",
+//				new HelpDicionario("maximizar:",
 //						"Maximizar uma janela, neste sentido, serve para levar a janela a expandir-se ao máximo"),
-//				new DicionarioHelp("logout:",
-//						"Processo que permite ao .usuário uma rede protegida desligar-se de um sistema informático"),
-//				new DicionarioHelp("tecnologia",
+//				new HelpDicionario("logout:",
+//						"Processo que permite ao usuário de uma rede protegida desligar-se de um sistema informático"),
+//				new HelpDicionario("tecnologia",
 //						"Ciência que estuda os métodos e a evolução num âmbito industrial: tecnologia da internet."));
 //
 //	}

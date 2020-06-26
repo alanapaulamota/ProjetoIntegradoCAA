@@ -66,10 +66,10 @@ public class CadastroUser implements UserDetails {
 	@Column(length = 254, unique = true, nullable = false)
 	private String email;
 
-	@ManyToMany
-	private List<Role>roles;
-//	@JoinTable(name="usuariosRoles", joinColumns = @JoinColumn (name="usuarioRoleId", referencedColumnName = "cpf"), inverseJoinColumns = @JoinColumn(name ="")  )
-	
+//	@ManyToMany
+//	private List<Role>roles;
+////	@JoinTable(name="usuariosRoles", joinColumns = @JoinColumn (name="usuarioRoleId", referencedColumnName = "cpf"), inverseJoinColumns = @JoinColumn(name ="")  )
+//	
 	
 	// Gerando HashCode and equals
 	@Override
@@ -99,39 +99,81 @@ public class CadastroUser implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getPassword() {
-		return this.senha;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public String getUsername() {
-		return this.cpf;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	// CRIANDO GETTERS E SETTER COM LOMBOK
+//	@Override
+//	public Collection<? extends GrantedAuthority> getAuthorities() {
+//		return null;
+//	}
+//
+//	@Override
+//	public String getPassword() {
+//		return this.senha;
+//	}
+//
+//	@Override
+//	public String getUsername() {
+//		return this.cpf;
+//	}
+//
+//	@Override
+//	public boolean isAccountNonExpired() {
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean isAccountNonLocked() {
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean isCredentialsNonExpired() {
+//		return true;
+//	}
+//
+//	@Override
+//	public boolean isEnabled() {
+//		return true;
+//	}
+//
+//	// CRIANDO GETTERS E SETTER COM LOMBOK
 	
 }

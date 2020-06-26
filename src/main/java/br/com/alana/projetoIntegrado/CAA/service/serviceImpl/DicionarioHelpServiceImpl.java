@@ -4,27 +4,27 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import br.com.alana.projetoIntegrado.CAA.model.DicionarioHelp;
-import br.com.alana.projetoIntegrado.CAA.repository.DicionarioHelpRepository;
+import br.com.alana.projetoIntegrado.CAA.model.HelpDicionario;
+import br.com.alana.projetoIntegrado.CAA.repository.HelpDicionarioRepository;
 import br.com.alana.projetoIntegrado.CAA.service.DicionarioHelpService;
 
 public class DicionarioHelpServiceImpl implements DicionarioHelpService {
 
 	@Autowired
-	DicionarioHelpRepository dicRepo;
+	HelpDicionarioRepository dicRepo;
 
 	@Override
-	public DicionarioHelp findById(long id) {
+	public HelpDicionario findById(long id) {
 		return dicRepo.findById(id).get();
 	}
 
 	@Override
-	public List<DicionarioHelp> findAll() {
+	public List<HelpDicionario> findAll() {
 		return dicRepo.findAll();
 	}
 
 	@Override
-	public List<DicionarioHelp> findByPalavra(String palavra, String significado) {
+	public List<HelpDicionario> findByPalavra(String palavra, String significado) {
 		return dicRepo.findByPalavraContainingOrSignificadoContaining(palavra, significado);
 	}
 
